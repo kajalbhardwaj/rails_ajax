@@ -1,0 +1,41 @@
+<%= form_with(model: user, remote: true) do |form| %>
+
+  <div class="modal-body">
+    <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_no %>
+    <%= form.text_field :phone_no %>
+  </div>
+
+  
+  </div>
+  <div class="modal-footer">
+    
+    <button type="button" class="btn btn-secondary modal-close" data-bs-dismiss="modal">Close</button>
+    <%= form.submit %>
+  </div>
+
+
+  
+<% end %>

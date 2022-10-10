@@ -1,0 +1,6 @@
+<% if @user.errors.any? %>
+   alert('invalid user');
+<% else %>
+  $("#usersTable").prepend("<%= escape_javascript render('user_row', user: @user)%>");
+  $(".modal-close").click();
+<%end%>
